@@ -1,0 +1,53 @@
+
+TheGameForm:
+    rows: 6
+    cols: 1
+    detail_txt: detail
+    titles_win_spr : titles_win
+    titles_lose_spr : titles_lose	
+	titles_win_ls_txt :titles_win_ls
+	titles_lose_ls_txt : titles_lose_ls
+	label_txt : label
+    Label:
+		id : label
+        text: str(len(root.scores)) + ' scores loaded.'
+        size_hint_y: 1
+	BoxLayout:
+		orientation : 'horizontal'
+		Label:
+			id : titles_win_ls
+			text :'Number of game won :' + str(len(root.titles_win))
+		Label:
+			id : titles_lose_ls
+			text :'Number of game lost :' + str(len(root.titles_lose))
+	BoxLayout:
+		orientation : 'horizontal'
+		Spinner:
+			id: titles_win
+			text : 'Games won ' 
+			values: root.titles_win
+			size_hint_y: 1
+			on_text: root.result(self.text)
+		Spinner:
+			id: titles_lose
+			text : 'Games lost ' 
+			values: root.titles_lose
+			size_hint_y: 1
+			on_text: root.result(self.text)
+    TextInput:
+        id: detail
+        readonly: True
+        size_hint_y: 5
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 1
+        Button:
+            text: 'Delete'
+            on_press: root.delete()
+	BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 1
+        Button:
+            text: 'Return on the site'
+            on_press: root.redirecturl()
+	

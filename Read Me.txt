@@ -1,0 +1,4 @@
+Require:
+ - Python
+ - CherryPy
+ - Kivy
